@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectPostById } from "./postsSlice";
 import { selectUserById } from "../users/usersSlice";
 import styles from './PostListItem.module.css'
+import { Link } from "react-router-dom";
 
 // Destructure `props.id`, since we just need the ID value
 const PostListItem = ({ id }) => {
@@ -12,10 +13,10 @@ const PostListItem = ({ id }) => {
   const user = useSelector((state) => selectUserById(state, userId));
 
   return (
-    <a className={styles.listItem} href={ '/posts/' + id }>
+    <Link className={styles.listItem} to={ '/posts/' + id }>
       <div className={styles.title}>{title}</div>
       <div className={styles.userName}>{user.name}</div>
-    </a>
+    </Link>
   )
 }
 

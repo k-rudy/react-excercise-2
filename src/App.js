@@ -30,11 +30,11 @@ function App() {
           <Route exact path="/">
             <Redirect to='/posts' />
           </Route>
-          <Route path="/posts">
-            <PostList />
-          </Route>
           <Route path="/posts/:id">
             <Post />
+          </Route>
+          <Route path="/posts">
+            <PostList />
           </Route>
           <Route path="/albums">
             <h1>Albums</h1>
