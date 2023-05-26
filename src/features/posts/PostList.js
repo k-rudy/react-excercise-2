@@ -4,6 +4,7 @@ import store from '../../store'
 
 import { selectFilteredPostIds, fetchPosts } from './postsSlice'
 import PostListItem from './PostListItem'
+import Filters from '../filters/Filters'
 import styles from './PostList.module.css'
 
 const PostList = () => {
@@ -24,6 +25,7 @@ const PostList = () => {
 
   return (
     <>
+      <Filters />
       <div className={styles.postsCounter}>{postIds.length} Posts</div>
       <ul className={styles.postList}>{renderedListItems}</ul>
     </>

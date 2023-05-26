@@ -12,10 +12,10 @@ const PostListItem = ({ id }) => {
   const user = useSelector((state) => selectUserById(state, userId));
 
   return (
-    <div className={styles.listItem}>
+    <a className={styles.listItem} href={ '/posts/' + id }>
       <div className={styles.title}>{title}</div>
       <div className={styles.userName}>{user.name}</div>
-    </div>
+    </a>
   )
 }
 

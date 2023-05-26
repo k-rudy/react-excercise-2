@@ -27,10 +27,12 @@ export default function filtersReducer(state = initialState, action) {
   }
 }
 
-export const sortFilterChanged = (sort) => ({
-  type: 'filters/sortFilterChanged',
-  payload: sort,
-})
+export const sortFilterChanged = (sort) => {
+  return {
+    type: 'filters/sortFilterChanged',
+    payload: sort,
+  }
+}
 
 export const queryFilterChanged = (query) => {
   return {

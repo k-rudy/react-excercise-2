@@ -1,0 +1,24 @@
+.filters {
+  width: 97%;
+  display: flex;
+  padding: 27px;
+  justify-content: space-between;
+}
+
+.sortContainer select {
+  width: 200px;
+  border: solid 1px #777;
+  padding: 7px;
+}
+
+.sortContainer label {
+  font-size: 10pt;
+  color: #222;
+  margin: 0 10px 0 0;
+}
+
+.queryContainer input {
+  width: 300px;
+  border: solid 1px #777;
+  padding: 7px;
+}
