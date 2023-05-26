@@ -17,7 +17,10 @@ export default function usersReducer(state = initialState, action) {
       return {
         ...state,
         status: 'idle',
-        entitiesById: action.payload.reduce((acc, item) => acc.set(item.id, item), new Map())
+        entitiesById: action.payload.reduce((acc, item) => {
+                        acc[item.id] = item
+                        return acc
+                      }, {})
       }
     }
     default:
@@ -37,5 +40,5 @@ export const fetchUsers = () => async (dispatch) => {
 }
 
 export const selectUserById = (state, userId) => {
-  return state.users.entitiesById.get(userId)
+  return state.users.entitiesById[userId]
 }
