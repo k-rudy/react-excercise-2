@@ -4,6 +4,7 @@ import store from '../../store'
 
 import { selectFilteredPostIds, fetchPosts } from './postsSlice'
 import PostListItem from './PostListItem'
+import styles from './PostList.module.css'
 
 const PostList = () => {
   const postIds = useSelector(selectFilteredPostIds)
@@ -11,8 +12,8 @@ const PostList = () => {
 
   if (loadingStatus === 'loading') {
     return (
-      <div className="post-list">
-        <div className="loader" />
+      <div className={styles.postList}>
+        <div className={styles.loader} />
       </div>
     )
   }
@@ -21,7 +22,12 @@ const PostList = () => {
     return <PostListItem key={postId} id={postId} />
   })
 
-  return <ul className="post-list">{renderedListItems}</ul>
+  return (
+    <>
+      <div className={styles.postsCounter}>{postIds.length} Posts</div>
+      <ul className={styles.postList}>{renderedListItems}</ul>
+    </>
+  )
 }
 
 export default PostList

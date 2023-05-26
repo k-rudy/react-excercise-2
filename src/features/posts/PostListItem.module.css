@@ -1,7 +1,16 @@
 .listItem {
-  width: 100%;
+  width: 98%;
+  border: 1px solid #999;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.title {
+  font-size: 14pt;
+  color: #0000FF;
+  margin: 0 0 15px 0;
 }
 
 .userName {
-
+  font-size: 10pt;
 }

@@ -1,0 +1,16 @@
+.header {
+  background-color: #eeeeee;
+  margin: 0;
+  padding: 10px 10px 10px 100px;
+  display: flex;
+}
+
+.header li {
+  list-style-type: none;
+  margin: 0 30px;
+}
+
+.header li a{
+  text-decoration: none;
+  font-size: 15pt;
+}

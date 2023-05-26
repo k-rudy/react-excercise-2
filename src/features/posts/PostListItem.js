@@ -13,7 +13,7 @@ const PostListItem = ({ id }) => {
 
   return (
     <div className={styles.listItem}>
-      {title}
+      <div className={styles.title}>{title}</div>
       <div className={styles.userName}>{user.name}</div>
     </div>
   )

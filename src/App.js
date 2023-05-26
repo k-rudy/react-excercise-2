@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect, useParams } fro
 import PostList from './features/posts/PostList'
 import Post from './features/posts/Post'
 
+import styles from './App.module.css'
+
 function App() {
   return (
     <Router>
       <div>
-        <ul>
+        <ul className={styles.header}>
           <li>
             <Link to="/posts">Posts</Link>
           </li>
@@ -16,8 +18,6 @@ function App() {
             <Link to="/albums">Albums</Link>
           </li>
         </ul>
-
-        <hr />
 
         {/*
           A <Switch> looks through all its children <Route>
