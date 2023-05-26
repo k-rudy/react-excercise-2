@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals';
+import { fetchPostsAndUsers } from './features/posts/postsSlice';
 
 import store from './store'
+
+store.dispatch(fetchPostsAndUsers())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect'
 import { client } from '../../api/client'
 import { SortFilters } from '../filters/filtersSlice'
+import { fetchUsers } from '../users/usersSlice'
 
 const initialState = {
   status: 'idle',
@@ -18,8 +19,13 @@ export default function postsReducer(state = initialState, action) {
     case 'posts/postsLoaded': {
       return {
         ...state,
-        status: 'idle',
         entities: action.payload,
+      }
+    }
+    case 'posts/postsAndUsersLoaded': {
+      return {
+        ...state,
+        status: 'idle',
       }
     }
     default:
@@ -31,12 +37,23 @@ export const postsLoading = () => ({ type: 'posts/postsLoading' })
 
 export const postsLoaded = (posts) => ({ type: 'posts/postsLoaded', payload: posts })
 
+export const postsAndUsersLoaded = () => ({ type: 'posts/postsAndUsersLoaded' })
+
 // Thunk function
 export const fetchPosts = () => async (dispatch) => {
   dispatch(postsLoading())
   const response = await client.get('/posts')
-  dispatch(postsLoaded(response.posts))
+  dispatch(postsLoaded(response))
 }
+
+export const fetchPostsAndUsers = () => async (dispatch) => {
+  await Promise.all([
+    dispatch(fetchPosts()),
+    dispatch(fetchUsers())
+  ]);
+
+  return dispatch(postsAndUsersLoaded());
+};
 
 export const selectPosts = (state) => state.posts.entities
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import store from '../../store'
 
-import { selectFilteredPostIds } from './postsSlice'
+import { selectFilteredPostIds, fetchPosts } from './postsSlice'
 import PostListItem from './PostListItem'
 
 const PostList = () => {
