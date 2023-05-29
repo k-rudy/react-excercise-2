@@ -9,10 +9,10 @@ const CommentListItem = ({ comment }) => {
   const { name, email, body } = comment;
 
   return (
-    <li className={styles.listItem}>
-      <div className={styles.name}>{name}</div>
+    <li>
+      <div>{name}</div>
       <div className={styles.email}>{email}</div>
-      <div className={styles.body}>{body}</div>
+      <div>{body}</div>
     </li>
   )
 }

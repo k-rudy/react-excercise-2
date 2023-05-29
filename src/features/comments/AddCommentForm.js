@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import styles from './AddCommentForm.module.css'
 import { addNewComment } from './commentsSlice'
 
-export const AddCommentForm = (postId) => {
+const AddCommentForm = ({ postId }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
@@ -19,11 +19,12 @@ export const AddCommentForm = (postId) => {
   const canSave =
     [name, email, body].every(Boolean) && addRequestStatus === 'idle'
 
-  const onSaveCommentClicked = async () => {
+  const onFormSubmitted = async (e) => {
+    e.preventDefault()
     if (canSave) {
       try {
         setAddRequestStatus('pending')
-        await dispatch(addNewComment({ name, email, body, postId })).unwrap()
+        await dispatch(addNewComment(name, email, body, postId))
         setName('')
         setEmail('')
         setBody('')
@@ -37,11 +38,10 @@ export const AddCommentForm = (postId) => {
 
   return (
     <section>
-      <h2>Add a New Comment</h2>
-      <form>
+      <form className={styles.form} onSubmit={onFormSubmitted} method="post">
         <input
           type="text"
-          required="true"
+          required
           id="commentTitle"
           name="commentTitle"
           placeholder="Add comment name"
@@ -53,21 +53,24 @@ export const AddCommentForm = (postId) => {
           id="commentEmail"
           name="commentEmail"
           placeholder="Your email"
-          required="true"
+          required
           value={email}
           onChange={onEmailChanged}
         />
         <textarea
           id="commentBody"
           name="commentBody"
+          placeholder="What do you think?"
           value={body}
           onChange={onBodyChanged}
-          required="true"
+          required
         />
-        <button type="button" onClick={onSaveCommentClicked} disabled={!canSave}>
+        <button type="submit" disabled={!canSave}>
           Add Comment
         </button>
       </form>
     </section>
   )
 }
+
+export default AddCommentForm

@@ -33,7 +33,7 @@ const Post = () => {
         <div className={styles.body}>{body}</div>
       </div>
 
-      <CommentList key={id} postId={id} />
+      <CommentList key={id} postId={parseInt(id)} />
     </div>
   )
 }

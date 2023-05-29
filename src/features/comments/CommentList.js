@@ -31,6 +31,7 @@ const CommentList = ({ postId }) => {
       <div className={styles.commentsHeader}>Post Comments</div>
       <div className={styles.commentsCounter}>{comments.length} Comments</div>
       <ul className={styles.commentsList}>{renderedListItems}</ul>
+      <AddCommentForm key={postId} postId={postId} />
     </>
   )
 }

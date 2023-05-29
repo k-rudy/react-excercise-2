@@ -1,0 +1,15 @@
+.form {
+  width: 50%;
+  display: block;
+  border: 1px solid #999;
+  margin: 0 0 0 40px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.form input, .form textarea {
+  width: 96%;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid #999;
+}
