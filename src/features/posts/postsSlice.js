@@ -80,7 +80,7 @@ export const selectFilteredPosts = createSelector(
     // Apply query filter
     const filteredPosts = query.length > 0 ? posts.filter(post => post.title.includes(query)) : posts
     // Apply sorting fiter
-    return filteredPosts.toSorted((a, b) => (a.title > b.title) ? sort : -sort)
+    return [...filteredPosts].sort((a, b) => (a.title > b.title) ? sort : -sort)
   }
 )
 

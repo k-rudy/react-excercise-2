@@ -12,10 +12,10 @@ function App() {
       <div>
         <ul className={styles.header}>
           <li>
-            <Link to="/posts">Posts</Link>
+            <Link data-testid='posts' to="/posts">Posts</Link>
           </li>
           <li>
-            <Link to="/albums">Albums</Link>
+            <Link data-testid='albums' to="/albums">Albums</Link>
           </li>
         </ul>
 
