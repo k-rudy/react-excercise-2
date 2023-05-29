@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { selectPostById } from "./postsSlice";
 import { Link } from "react-router-dom";
 import User from "../users/User";
+import CommentList from "../comments/CommentList";
 import styles from './Post.module.css'
 
 const Post = () => {
@@ -31,6 +32,8 @@ const Post = () => {
         <User key={userId} userId={userId} />
         <div className={styles.body}>{body}</div>
       </div>
+
+      <CommentList key={id} postId={id} />
     </div>
   )
 }
